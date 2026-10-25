@@ -8,9 +8,8 @@ jobs:
       - name: Unpack code
         run: |
           unzip -q ViTune-fast.zip -d src
-          cd src
-          d=$(dirname "$(find . -name gradlew -print -quit)")
-          echo "PROJECT=$PWD/$d" >> $GITHUB_ENV
+          g=$(find "$PWD/src" -name gradlew -print -quit)
+          echo "PROJECT=$(dirname "$g")" >> $GITHUB_ENV
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
