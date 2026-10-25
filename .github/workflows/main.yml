@@ -23,8 +23,7 @@ jobs:
       - name: Build debug APK
         run: |
           cd "$PROJECT"
-          chmod +x gradlew
-          ./gradlew assembleDebug --no-daemon --stacktrace
+          java -classpath gradle/wrapper/gradle-wrapper.jar org.gradle.wrapper.GradleWrapperMain assembleDebug --no-daemon --stacktrace
       - uses: actions/upload-artifact@v4
         with:
           name: vitune-apk
